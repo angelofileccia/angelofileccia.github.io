@@ -415,14 +415,13 @@
         submitBtn.textContent = 'Submitted ✓';
         window.scrollTo({ top: document.getElementById('msgSuccess').offsetTop - 80, behavior: 'smooth' });
       } else {
-        const detail = json.error || json.errors?.map(e=>e.message).join(', ') || `HTTP ${response.status}`;
-        msgError.innerHTML = `Something went wrong: <strong>${detail}</strong>. Or email Angelo directly at <a href="mailto:MIAtoZRealty@gmail.com" style="color:var(--copper);">MIAtoZRealty@gmail.com</a>.`;
+        msgError.innerHTML = `Something went wrong on our end. Please try again, or reach Angelo directly at <a href="mailto:MIAtoZRealty@gmail.com" style="color:var(--copper);">MIAtoZRealty@gmail.com</a>.`;
         msgError.style.display = 'block';
         submitBtn.disabled = false;
         submitBtn.textContent = 'Request My Free Valuation →';
       }
     } catch (err) {
-      msgError.innerHTML = `Network error: <strong>${err.message}</strong>. Please try again or email Angelo at <a href="mailto:MIAtoZRealty@gmail.com" style="color:var(--copper);">MIAtoZRealty@gmail.com</a>.`;
+      msgError.innerHTML = `Something went wrong on our end. Please try again, or reach Angelo directly at <a href="mailto:MIAtoZRealty@gmail.com" style="color:var(--copper);">MIAtoZRealty@gmail.com</a>.`;
       msgError.style.display = 'block';
       submitBtn.disabled = false;
       submitBtn.textContent = 'Request My Free Valuation →';
