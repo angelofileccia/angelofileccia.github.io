@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Home Valuation — Angelo Fileccia</title>
+  <meta name="description" content="Get a free home valuation from Angelo Fileccia, Real Estate Advisor serving Arizona and Metro Detroit. No automated estimate — a real advisor looks at your property.">
+  <meta property="og:title" content="Free Home Valuation — Angelo Fileccia">
+  <meta property="og:description" content="Not an algorithm. A real advisor reviews your property and contacts you with an honest market value.">
+  <meta property="og:url" content="https://angelofileccia.com/home-valuation.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy: #0f2136; --copper: #b87245; --off-white: #f7f1e8; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      background: var(--navy);
+      color: var(--off-white);
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; }
+    nav {
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(184,114,69,0.18);
+    }
+    nav a { color: var(--copper); text-decoration: none; font-size: 0.88rem; font-weight: 500; }
+    nav a:hover { text-decoration: underline; }
+    nav img { width: 34px; border-radius: 4px; opacity: 0.85; margin-left: auto; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    header { padding: 44px 24px 20px; text-align: center; }
+    header h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 12px; }
+    header p { color: rgba(247,241,232,0.72); font-size: 0.98rem; max-width: 520px; margin: 0 auto; }
+    /* Value props */
+    .props {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin: 28px 0;
+    }
+    .prop {
+      background: rgba(184,114,69,0.08);
+      border-left: 2px solid var(--copper);
+      border-radius: 0 4px 4px 0;
+      padding: 14px 18px;
+    }
+    .prop strong { display: block; color: var(--copper); font-size: 0.88rem; margin-bottom: 4px; }
+    .prop span { font-size: 0.85rem; color: rgba(247,241,232,0.72); line-height: 1.4; }
+    /* Form card */
+    .form-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(184,114,69,0.22);
+      border-radius: 8px;
+      padding: 32px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Playfair Display', serif;
+      color: var(--copper);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field.full { grid-column: 1 / -1; }
+    label {
+      font-size: 0.77rem;
+      color: rgba(247,241,232,0.62);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    label .req { color: var(--copper); }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(184,114,69,0.28);
+      border-radius: 4px;
+      color: var(--off-white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.96rem;
+      font-weight: 400;
+      padding: 11px 13px;
+      outline: none;
+      transition: border-color 0.15s, background 0.15s;
+      -moz-appearance: textfield;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--copper);
+      background: rgba(255,255,255,0.08);
+    }
+    input::placeholder, textarea::placeholder { color: rgba(247,241,232,0.3); }
+    select option { background: #0f2136; }
+    textarea { resize: vertical; min-height: 90px; }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(184,114,69,0.14);
+      margin: 24px 0;
+    }
+    /* Submit */
+    .submit-btn {
+      width: 100%;
+      background: var(--copper);
+      color: var(--navy);
+      border: none;
+      border-radius: 4px;
+      padding: 14px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+      letter-spacing: 0.02em;
+    }
+    .submit-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 18px rgba(184,114,69,0.3); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+    .form-note {
+      font-size: 0.78rem;
+      color: rgba(247,241,232,0.4);
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+    /* Success / Error states */
+    .msg {
+      display: none;
+      border-radius: 6px;
+      padding: 18px 22px;
+      margin-bottom: 16px;
+      font-size: 0.94rem;
+      line-height: 1.5;
+    }
+    .msg.success {
+      background: rgba(72,199,116,0.1);
+      border: 1px solid rgba(72,199,116,0.35);
+      color: #a3f0bf;
+    }
+    .msg.error {
+      background: rgba(220,80,80,0.1);
+      border: 1px solid rgba(220,80,80,0.35);
+      color: #f4b8b8;
+    }
+    footer {
+      padding: 22px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(184,114,69,0.16);
+      font-size: 0.82rem;
+      color: rgba(247,241,232,0.38);
+    }
+    footer a { color: var(--copper); text-decoration: none; }
+    @media (max-width: 560px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .form-card { padding: 22px 18px; }
+    }
+    @media (max-width: 400px) {
+      .grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/">← angelofileccia.com</a>
+    <img src="assets/logo.jpg" alt="Angelo Fileccia">
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1>Free Home Valuation</h1>
+      <p>Not an algorithm. Angelo personally reviews your property and contacts you with an honest market read.</p>
+    </header>
+
+    <div class="props">
+      <div class="prop">
+        <strong>Real Advisor</strong>
+        <span>No Zestimate. Angelo looks at your specific home and comps.</span>
+      </div>
+      <div class="prop">
+        <strong>No Obligation</strong>
+        <span>Zero pressure. Just an honest number from someone who knows the market.</span>
+      </div>
+      <div class="prop">
+        <strong>Fast Turnaround</strong>
+        <span>Expect a response within 1–2 business days.</span>
+      </div>
+    </div>
+
+    <div class="form-card">
+
+      <!-- Success / error messages -->
+      <div class="msg success" id="msgSuccess">
+        ✅ Got it — Angelo will be in touch within 1–2 business days with your home valuation. Thank you!
+      </div>
+      <div class="msg error" id="msgError">
+        Something went wrong sending your request. Please try again, or email Angelo directly at
+        <a href="mailto:MIAtoZRealty@gmail.com" style="color:var(--copper);">MIAtoZRealty@gmail.com</a>.
+      </div>
+
+      <!--
+        SETUP NOTE FOR ANGELO:
+        This form uses Formspree (formspree.io) to email submissions to you.
+        Steps:
+          1. Go to https://formspree.io and sign up (free)
+          2. Create a new form → copy the form ID (looks like "xwkgpqrz")
+          3. Replace YOUR_FORM_ID below with your actual ID
+        That's it. Formspree sends you an email for every submission.
+      -->
+      <form id="valuationForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+        <!-- Property Info -->
+        <div class="section-label">Property Details</div>
+
+        <div class="field full" style="margin-bottom:18px;">
+          <label>Property Address <span class="req">*</span></label>
+          <input type="text" name="property_address" placeholder="123 Main St, Chandler, AZ 85224" required>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Market <span class="req">*</span></label>
+            <select name="market" required>
+              <option value="" disabled selected>Select market</option>
+              <option value="Arizona — East Valley">Arizona — East Valley</option>
+              <option value="Arizona — Other">Arizona — Other</option>
+              <option value="Michigan — Metro Detroit">Michigan — Metro Detroit</option>
+              <option value="Michigan — Other">Michigan — Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Property Type</label>
+            <select name="property_type">
+              <option value="" disabled selected>Select type</option>
+              <option value="Single Family">Single Family</option>
+              <option value="Condo / Townhouse">Condo / Townhouse</option>
+              <option value="Multi-Family">Multi-Family</option>
+              <option value="Land">Land</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="field">
+            <label>Bedrooms</label>
+            <select name="bedrooms">
+              <option value="" disabled selected>Beds</option>
+              <option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Bathrooms</label>
+            <select name="bathrooms">
+              <option value="" disabled selected>Baths</option>
+              <option>1</option><option>1.5</option><option>2</option>
+              <option>2.5</option><option>3</option><option>3.5</option><option>4+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Sq Ft (approx)</label>
+            <input type="number" name="sqft" placeholder="1,800" min="100" step="50">
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Year Built (approx)</label>
+            <input type="number" name="year_built" placeholder="2005" min="1800" max="2026">
+          </div>
+          <div class="field">
+            <label>Selling Timeline</label>
+            <select name="timeline">
+              <option value="" disabled selected>Select timeline</option>
+              <option value="ASAP">ASAP</option>
+              <option value="1–3 months">1–3 months</option>
+              <option value="3–6 months">3–6 months</option>
+              <option value="6–12 months">6–12 months</option>
+              <option value="Just exploring">Just exploring</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field" style="margin-bottom:18px;">
+          <label>Recent Updates or Notes (optional)</label>
+          <textarea name="notes" placeholder="New roof in 2022, updated kitchen, pool, etc."></textarea>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Contact Info -->
+        <div class="section-label">Your Contact Info</div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>First Name <span class="req">*</span></label>
+            <input type="text" name="first_name" placeholder="Jane" required>
+          </div>
+          <div class="field">
+            <label>Last Name <span class="req">*</span></label>
+            <input type="text" name="last_name" placeholder="Smith" required>
+          </div>
+          <div class="field">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" name="email" placeholder="jane@example.com" required>
+          </div>
+          <div class="field">
+            <label>Phone</label>
+            <input type="tel" name="phone" placeholder="(555) 555-5555">
+          </div>
+        </div>
+
+        <div class="field" style="margin-bottom:24px;">
+          <label>How did you hear about Angelo? (optional)</label>
+          <select name="referral_source">
+            <option value="" disabled selected>Select one</option>
+            <option value="Google">Google</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Facebook">Facebook</option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="Zillow">Zillow</option>
+            <option value="Referral">Referral from a friend</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <!-- Hidden fields for Formspree -->
+        <input type="hidden" name="_subject" value="New Home Valuation Request — angelofileccia.com">
+        <input type="text" name="_gotcha" style="display:none;">
+
+        <button type="submit" class="submit-btn" id="submitBtn">Request My Free Valuation →</button>
+        <div class="form-note">
+          Your information is used only to prepare your valuation and contact you. No spam, ever.
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <a href="/">← angelofileccia.com</a> &nbsp;·&nbsp;
+    <a href="/mortgage-calculator.html">Mortgage Calculator</a> &nbsp;·&nbsp;
+    © 2026 Angelo Fileccia, Real Estate Advisor
+  </footer>
+
+<script>
+  const form = document.getElementById('valuationForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const msgSuccess = document.getElementById('msgSuccess');
+  const msgError = document.getElementById('msgError');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    msgSuccess.style.display = 'none';
+    msgError.style.display = 'none';
+
+    try {
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        msgSuccess.style.display = 'block';
+        form.reset();
+        submitBtn.textContent = 'Submitted ✓';
+        window.scrollTo({ top: document.getElementById('msgSuccess').offsetTop - 80, behavior: 'smooth' });
+      } else {
+        throw new Error('Non-OK response');
+      }
+    } catch (err) {
+      msgError.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Request My Free Valuation →';
+    }
+  });
+</script>
+</body>
+</html>
