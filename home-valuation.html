@@ -390,15 +390,23 @@
         headers: { 'Accept': 'application/json' }
       });
 
-      if (response.ok) {
+      let json = {};
+      try { json = await response.json(); } catch(e) {}
+
+      if (response.ok && json.ok !== false) {
         msgSuccess.style.display = 'block';
         form.reset();
         submitBtn.textContent = 'Submitted ✓';
         window.scrollTo({ top: document.getElementById('msgSuccess').offsetTop - 80, behavior: 'smooth' });
       } else {
-        throw new Error('Non-OK response');
+        const detail = json.error || json.errors?.map(e=>e.message).join(', ') || `HTTP ${response.status}`;
+        msgError.innerHTML = `Something went wrong: <strong>${detail}</strong>. Or email Angelo directly at <a href="mailto:MIAtoZRealty@gmail.com" style="color:var(--copper);">MIAtoZRealty@gmail.com</a>.`;
+        msgError.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Request My Free Valuation →';
       }
     } catch (err) {
+      msgError.innerHTML = `Network error: <strong>${err.message}</strong>. Please try again or email Angelo at <a href="mailto:MIAtoZRealty@gmail.com" style="color:var(--copper);">MIAtoZRealty@gmail.com</a>.`;
       msgError.style.display = 'block';
       submitBtn.disabled = false;
       submitBtn.textContent = 'Request My Free Valuation →';
