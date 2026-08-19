@@ -12,6 +12,12 @@
   <meta property="og:url" content="https://angelofileccia.com">
   <meta property="og:image" content="https://angelofileccia.com/assets/headshot.jpg">
 
+  <!-- Google tag (GA4) — measurement ID added when available -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <!-- Google Search Console verification -->
+  <!-- <meta name="google-site-verification" content="XXXXXXXXXXXX" /> -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -224,6 +230,94 @@
       letter-spacing: 0.04em;
     }
 
+    /* ── Maps ── */
+    .maps-section { margin-top: 24px; }
+    .maps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      margin-top: 20px;
+    }
+    .map-card { }
+    .map-card h3 {
+      font-size: 1.1rem;
+      color: var(--copper);
+      margin-bottom: 10px;
+    }
+    .map-card iframe {
+      width: 100%;
+      height: 240px;
+      border: none;
+      border-radius: 6px;
+      filter: grayscale(20%) contrast(1.05);
+    }
+    .map-card ul {
+      list-style: none;
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .map-card ul li {
+      background: rgba(184,114,69,0.1);
+      border: 1px solid rgba(184,114,69,0.2);
+      border-radius: 3px;
+      padding: 3px 10px;
+      font-size: 0.82rem;
+      color: rgba(247,241,232,0.82);
+    }
+
+    /* ── Dynamic Reviews ── */
+    .stars {
+      color: var(--copper);
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+    }
+    .reviews-summary {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .reviews-summary .big-score {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--off-white);
+      line-height: 1;
+    }
+    .reviews-summary .score-detail {
+      font-size: 0.88rem;
+      color: rgba(247,241,232,0.6);
+    }
+    .reviews-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .review-card {
+      background: rgba(184,114,69,0.07);
+      border: 1px solid rgba(184,114,69,0.18);
+      border-radius: 6px;
+      padding: 18px 20px;
+    }
+    .review-card .reviewer-name {
+      font-weight: 500;
+      color: var(--off-white);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+    .review-card .review-date {
+      font-size: 0.78rem;
+      color: rgba(247,241,232,0.45);
+      margin-bottom: 10px;
+    }
+    .review-card .review-text {
+      font-size: 0.9rem;
+      color: rgba(247,241,232,0.82);
+      line-height: 1.55;
+    }
+
     .reviews-links {
       display: flex;
       flex-wrap: wrap;
@@ -336,8 +430,8 @@
     </p>
   </section>
 
-  <section class="container">
-    <h2>Markets Served</h2>
+  <section class="container" style="display:none" aria-hidden="true">
+    <h2>Markets Served (legacy — replaced by maps section)</h2>
     <div class="markets">
       <div class="market">
         <h3>Arizona</h3>
@@ -403,17 +497,86 @@
     </div>
   </section>
 
-  <section class="container">
+  <!-- Maps Section -->
+  <section class="container maps-section">
+    <h2>Markets Served</h2>
+    <p>Active in two of the country's most distinct markets — Chandler's East Valley and Metro Detroit.</p>
+    <div class="maps-grid">
+      <div class="map-card">
+        <h3>Arizona — East Valley</h3>
+        <iframe
+          src="https://maps.google.com/maps?q=Chandler,AZ&output=embed&z=11"
+          allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Chandler AZ service area"></iframe>
+        <ul>
+          <li>Chandler</li><li>Gilbert</li><li>Queen Creek</li><li>Scottsdale</li>
+        </ul>
+      </div>
+      <div class="map-card">
+        <h3>Michigan — Metro Detroit</h3>
+        <iframe
+          src="https://maps.google.com/maps?q=Metro+Detroit,MI&output=embed&z=10"
+          allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Metro Detroit service area"></iframe>
+        <ul>
+          <li>Metro Detroit</li><li>Southeast Michigan</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="container" id="reviews">
     <h2>Reviews</h2>
-    <p>What clients say lives across multiple platforms — pick the one you trust most:</p>
+    <div id="reviews-summary" class="reviews-summary" style="display:none">
+      <div class="big-score" id="avg-score"></div>
+      <div>
+        <div class="stars" id="avg-stars"></div>
+        <div class="score-detail" id="review-count"></div>
+      </div>
+    </div>
+    <div class="reviews-cards" id="reviews-cards"></div>
+    <p style="font-size:0.88rem;color:rgba(247,241,232,0.55);margin-bottom:16px;">Reviews sourced from Google Business Profile · updated weekly</p>
+    <p>Leave a review or browse all platforms:</p>
     <div class="reviews-links">
-      <a href="https://www.google.com/maps/search/?api=1&amp;query=Angelo+Fileccia+Real+Estate+Advisor+Chandler" target="_blank" class="review-link">Google</a>
+      <a href="https://g.page/r/review" target="_blank" class="review-link">⭐ Leave a Google Review</a>
       <a href="https://www.zillow.com/profile/Angelo%20Fileccia" target="_blank" class="review-link">Zillow</a>
       <a href="https://www.realtor.com/realestateagents/583792dff70a250001175bc1" target="_blank" class="review-link">Realtor.com</a>
       <a href="https://www.facebook.com/miatozrealty" target="_blank" class="review-link">Facebook</a>
       <a href="https://www.yelp.com/biz/angelo-fileccia-real-estate-advisor-southgate-2" target="_blank" class="review-link">Yelp</a>
     </div>
   </section>
+
+  <script>
+    // Load reviews from GBP data
+    fetch('/data/reviews.json').then(r => r.json()).then(data => {
+      if (!data.reviews || !data.reviews.length) return;
+
+      // Summary
+      const stars = '★'.repeat(Math.round(data.averageRating)) + '☆'.repeat(5 - Math.round(data.averageRating));
+      document.getElementById('avg-score').textContent = data.averageRating.toFixed(1);
+      document.getElementById('avg-stars').textContent = stars;
+      document.getElementById('review-count').textContent = `${data.totalCount} Google reviews`;
+      document.getElementById('reviews-summary').style.display = 'flex';
+
+      // Cards
+      const container = document.getElementById('reviews-cards');
+      data.reviews.forEach(r => {
+        const stars = '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars);
+        const date = new Date(r.date).toLocaleDateString('en-US', {month:'short', year:'numeric'});
+        const el = document.createElement('div');
+        el.className = 'review-card';
+        el.innerHTML = `
+          <div class="reviewer-name">${r.name}</div>
+          <div class="review-date"><span class="stars">${stars}</span> · ${date}</div>
+          <div class="review-text">${r.comment}</div>
+        `;
+        container.appendChild(el);
+      });
+    }).catch(() => {});
+  </script>
 
   <section class="container">
     <h2>Connect</h2>

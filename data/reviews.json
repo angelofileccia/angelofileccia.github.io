@@ -1,0 +1,55 @@
+{
+  "averageRating": 5.0,
+  "totalCount": 8,
+  "reviews": [
+    {
+      "name": "Justin Horst",
+      "stars": 5,
+      "comment": "Angelo did a great job of guiding me through the home buying process as a first time buyer.  He had knowledge of the environment and negotiation and was able to help quickly close on a short timeline.  If you're looking for an experienced realtor who makes the process smooth and looks out for your best interests, Angelo is the guy",
+      "date": "2026-05-27"
+    },
+    {
+      "name": "Emilia Ivans",
+      "stars": 5,
+      "comment": "Excellent realtor; knowledgeable, listens, and very easy to communicate with!",
+      "date": "2026-05-20"
+    },
+    {
+      "name": "Nick Badgley",
+      "stars": 5,
+      "comment": "Angelo was knowledgeable and professional throughout the sale of our home. He ensured it was appropriately priced, marketed the property to potential buyers, and guided us through the negotiation process. We had a quick, smooth transaction and were on to our new home without delay.",
+      "date": "2026-05-20"
+    },
+    {
+      "name": "Michael Little",
+      "stars": 5,
+      "comment": "Angelo was great to work with! Our schedules were completely opposite, but he did all the leg work and helped make my decision easy.",
+      "date": "2026-05-19"
+    },
+    {
+      "name": "Jim Stocking",
+      "stars": 5,
+      "comment": "Angelo is hands down one of the best! He has helped my family and I buy and sell multiple properties throughout the years and it has always been a great experience. I highly recommend Angelo if you\u2019re in the market to buy, sell, or browse he will definitely take care of you through the whole process.",
+      "date": "2026-05-19"
+    },
+    {
+      "name": "Dillon Dossey",
+      "stars": 5,
+      "comment": "Angelo was great to work with. We had a unique situation that required in depth knowledge from him in order for the process to go smoothly and in a timely manner to close. If you\u2019re looking for someone who will not only work to get you the best deal, but also provide top customer service then Angelo is the person to work with.",
+      "date": "2026-01-03"
+    },
+    {
+      "name": "Andrew Marshall",
+      "stars": 5,
+      "comment": "Angelo has completed multiple purchases and sales as my realtor. Not only did he always have my best interests in mind, but he was also very aware of our wants and needs and did his very best to fulfill them during our search. Communication with Angelo was always a pleasure and also timely. Angelo displayed the utmost professionalism and integrity during the entire process. Highly recommended!",
+      "date": "2025-12-23"
+    },
+    {
+      "name": "Jon McKinnie",
+      "stars": 5,
+      "comment": "I\u2019ve been using Angelo as my realtor since 2018. Helped find my first house to rent and then my first house to buy along with my second house. Very knowledgeable and is great at walking you through very step of the process. He took the unknowns out of the process to help me feel relaxed.",
+      "date": "2025-12-23"
+    }
+  ],
+  "updatedAt": "2026-08-19"
+}
