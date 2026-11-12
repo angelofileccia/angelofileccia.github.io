@@ -442,9 +442,35 @@
       .hero img.headshot { width: 140px; height: 140px; margin-bottom: 22px; }
       section { padding: 44px 0; }
     }
-  </style>
+  
+    #site-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,33,54,0.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(184,114,69,0.3);display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:56px;}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;color:var(--copper);text-decoration:none;letter-spacing:.05em;}
+    .nav-links{list-style:none;display:flex;gap:2rem;align-items:center;margin:0;padding:0;}
+    .nav-links a{color:rgba(247,241,232,0.8);text-decoration:none;font-size:.85rem;font-weight:400;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;}
+    .nav-links a:hover{color:var(--copper);}
+    .nav-links a.nav-cta{background:var(--copper);color:var(--navy)!important;padding:6px 18px;border-radius:2px;font-weight:500;}
+    .nav-links a.nav-cta:hover{opacity:.85;}
+    .nav-toggle{display:none;}
+    body{padding-top:56px;}
+    html{scroll-behavior:smooth;}
+    @media(max-width:640px){.nav-toggle{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}.nav-toggle span{display:block;width:24px;height:2px;background:var(--copper);border-radius:2px;}.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:rgba(15,33,54,0.98);flex-direction:column;padding:1.5rem 2rem;gap:1.2rem;border-bottom:1px solid rgba(184,114,69,0.3);}.nav-links.open{display:flex;}.nav-links a{font-size:1rem;}}
+
+    </style>
 </head>
 <body>
+  <nav id="site-nav" aria-label="Main navigation">
+    <a href="#" class="nav-logo">AF</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#markets">Markets</a></li>
+      <li><a href="#buying-process">Buying</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#connect" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
+  </nav>
+
 
   <section class="hero">
     <img src="assets/logo.jpg" alt="Angelo Fileccia, Real Estate Advisor" class="brand-logo">
@@ -457,7 +483,7 @@
     <a href="mailto:MIAtoZRealty@gmail.com" class="cta">Start a conversation</a>
   </section>
 
-  <section class="container">
+  <section id="about" class="container">
     <h2>About</h2>
     <p>
       A decade of real estate experience rooted in Metro Detroit, expanded to Arizona's East Valley. Built on the principle that geography should never be the bottleneck — the right advisor closes your deal whether they're in Chandler, Detroit, or somewhere in between.
@@ -489,7 +515,7 @@
     </div>
   </section>
 
-  <section class="container">
+  <section id="services" class="container">
     <h2>Services</h2>
     <div class="services">
       <div class="service">
@@ -515,7 +541,7 @@
     </div>
   </section>
 
-  <section class="container">
+  <section id="connect" class="container">
     <h2>Tools & Resources</h2>
     <p>Free tools to help you make smarter real estate decisions — no email required to use them.</p>
     <div class="tools-grid">
@@ -535,7 +561,7 @@
   </section>
 
   <!-- Maps Section -->
-  <section class="container maps-section">
+  <section id="markets" class="container maps-section">
     <h2>Markets Served</h2>
     <p>Active in two of the country's most distinct markets — Chandler's East Valley and Metro Detroit.</p>
     <div class="maps-grid">
